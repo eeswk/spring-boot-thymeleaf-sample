@@ -2,6 +2,8 @@ package com.zerock.controller;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -38,7 +40,7 @@ public class SimpleController {
 	}
 	
 	@GetMapping("/sample4")
-	public void sampe4(Model model) {
+	public void sample4(Model model) {
 		List<MemberVO> list  = new ArrayList<>();
 		
 		for (int i = 0; i < 10; i++) {
@@ -49,13 +51,13 @@ public class SimpleController {
 	}
 	
 	@GetMapping("/sample5")
-	public void sampe5(Model model) {
+	public void sample5(Model model) {
 		String result = "SUCCESS";
 		model.addAttribute("result", result);
 	}
 	
 	@GetMapping("/sample6")
-	public void sampe6(Model model) {
+	public void sample6(Model model) {
 		List<MemberVO> list  = new ArrayList<>();
 		
 		for (int i = 0; i < 10; i++) {
@@ -67,5 +69,15 @@ public class SimpleController {
 		String result = "SUCCESS";
 		
 		model.addAttribute("result", result);
+	}
+
+	@GetMapping("/sample7")
+	public void sample7(Model model) {
+
+		model.addAttribute("now", new Date());
+		model.addAttribute("price", 123456789);
+		model.addAttribute("title", "This is a just sample.");
+		model.addAttribute("options", Arrays.asList("AAAA", "BBBB", "CCCC", "DDDD"));
+
 	}
 }
